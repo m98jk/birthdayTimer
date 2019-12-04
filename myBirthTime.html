@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <title>My Birthday Timer</title>
+   <meta charset="UTF-8">
+</head>
+<body>
+    <style>
+    * {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  background-color: #607d8b;
+  display: flex;
+  align-items:center ;
+  justify-content: space-around;
+
+}
+#timer1{
+    margin-top: 250px;
+}
+#timer2{
+    margin-top: 100px;
+}
+#timer1 , #timer2{
+    font-size: 80px;
+    color: gold;
+}
+p{
+    position:absolute;
+    color: lemonchiffon;
+    font-size: 50px;
+}
+#all{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    line-height:0.2rem ;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 500px) {
+
+  #timer1 , #timer2{
+    font-size: 30px;
+  }
+  P{
+    font-size: 20px;
+  }
+
+  #timer2{
+    margin-top: 50px;
+}
+}
+    </style>
+    <p><b>MJ</b> Birthday is Comming ...</p>
+<div id="all">    
+<div id="timer1"></div> 
+<div id="timer2"></div>
+</div>
+<script>
+
+    function timy(){
+    let countDownDate = new Date("Jan 1, 2020 12:00:00").getTime();
+
+    let now = new Date().getTime();
+    
+    // Find the distance between now and the count down date
+    let distance = countDownDate - now;
+      
+    // Time calculations for days, hours, minutes and seconds
+    let hour = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    let day = Math.floor(distance / (1000 * 60 * 60 * 24));
+    let minute = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    let second = Math.floor((distance % (1000 * 60)) / 1000);
+     
+    let myBirth1 = `${day} D : ${hour} H ` ;
+    let myBirth2 = `${minute} Min : ${second} S` ;
+
+    let timer1 = document.getElementById("timer1");
+    timer1.innerHTML = myBirth1
+    
+    let timer2 = document.getElementById("timer2");
+    timer2.innerHTML = myBirth2
+}
+setInterval(timy , 1000)
+
+</script>
+</body>
+</html>
